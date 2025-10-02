@@ -50,7 +50,7 @@ public class GameBoardPanel extends JPanel implements ActionListener {
 	public GameBoardPanel(GameWindow tetrisFrame, int timerResolution) {
 
 		setFocusable(true);
-		setBackground(new Color(0, 30, 30));
+		setBackground(new Color(240, 242, 250)); // Light background matching FintechCo theme
 		curBlock = new Tetromino();
 		timer = new Timer(timerResolution, this);
 		timer.start(); 	// activate timer
@@ -58,12 +58,12 @@ public class GameBoardPanel extends JPanel implements ActionListener {
 
 		gameBoard = new Tetrominoes[BoardWidth * BoardHeight];
 
-		// colour of tetrominoes
+		// colour of tetrominoes - FintechCo blue/purple gradient theme
 		colorTable = new Color[] {
-				new Color(0, 0, 0), 	  new Color(238, 64, 53),
-				new Color(243, 119, 54),  new Color(255, 201, 14),
-				new Color(123, 192, 67),  new Color(3, 146, 207),
-				new Color(235, 214, 135), new Color(164, 135, 235)
+				new Color(0, 0, 0), 	  new Color(100, 149, 237), // Cornflower Blue
+				new Color(106, 90, 205),  new Color(123, 104, 238), // Medium Slate Blue / Medium Purple
+				new Color(147, 112, 219),  new Color(138, 43, 226), // Medium Purple / Blue Violet
+				new Color(75, 0, 130), new Color(72, 61, 139) // Indigo / Dark Slate Blue
 		};
 
 		// keyboard listener
@@ -207,10 +207,10 @@ public class GameBoardPanel extends JPanel implements ActionListener {
 			currentLevel = "";
 		}
 
-		g.setColor(Color.WHITE);
-		g.setFont(new Font("Consolas", Font.PLAIN, 28));
-		g.drawString(currentStatus, 15, 35);
-		g.drawString(currentLevel, 15, 70);
+		g.setColor(new Color(45, 55, 72)); // Dark slate text color for contrast
+		g.setFont(new Font("Arial", Font.BOLD, 32)); // Modern sans-serif bold font
+		g.drawString(currentStatus, 15, 40);
+		g.drawString(currentLevel, 15, 80);
 
 		Dimension size = getSize();
 		int boardTop = (int) size.getHeight() - BoardHeight * blockHeight();
